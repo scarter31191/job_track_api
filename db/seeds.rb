@@ -7,19 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #USER SEED DATA
-User.delete_all
+# User.delete_all
 
-NUM_USERS = 50
+# NUM_USERS = 50
 
-NUM_USERS.times do
-    name = Faker::Name.name
-    username = Faker::Internet.username
-    email = Faker::Internet.email
-    password_digest = Faker::Internet.password
-    User.create(name: name, username: username, email: email, password_digest: password_digest)
+(1..20).each do |id|
+    User.create(
+        id: id,
+        name: Faker::Name.name,
+        username: Faker::Internet.username,
+        email: Faker::Internet.email,
+        password_digest: Faker::Internet.password,
+    )
+    
 end
 
-#GOALS DATA
+# #GOALS DATA
+# Goal.delete_all
+arry = ['Active', 'Closed']
+# NUM_GOALS = 50
+
+(1..10).each do |id|
+    Goal.create(
+        user_id: id,
+        goals: Faker::Lorem.sentence(word_count: 2, supplemental: true),
+        status: arry.sample,
+        notes: Faker::Lorem.sentence(word_count: 5, supplemental: true),
+    )
+end
+
 
 
 

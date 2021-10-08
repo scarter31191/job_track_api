@@ -1,11 +1,12 @@
 module Api
-  module v1
+  module V1
     class GoalsController < ApplicationController
-      before_action :set_goal, only: [:show, :update, :destroy]
+      before_action :set_user
+      before_action :set_goal, except: [:index] #
     
       # GET /goals
       def index
-        @goals = Goal.all
+        @goals = @user.goals
     
         render json: @goals
       end
@@ -45,7 +46,10 @@ module Api
         def set_goal
           @goal = Goal.find(params[:id])
         end
-    
+        
+        def set_user
+          @user = User.find(params[:user_id])
+        end
         # Only allow a trusted parameter "white list" through.
         def goal_params
           params.require(:goal).permit(:user_id, :goals, :status, :notes)
@@ -54,4 +58,4 @@ module Api
   end
 end
 
-
+# http://localhost:3000/api/v1/users/1/goals
