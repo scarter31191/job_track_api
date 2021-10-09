@@ -1,2 +1,0 @@
-class JobOpportunity < ApplicationRecord
-end
