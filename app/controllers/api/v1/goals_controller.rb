@@ -2,7 +2,7 @@ module Api
   module V1
     class GoalsController < ApplicationController
       before_action :set_user
-      before_action :set_goal, except: [:index] #
+      before_action :set_goal, except: [:index] #allows to just show the index
     
       # GET /goals
       def index
