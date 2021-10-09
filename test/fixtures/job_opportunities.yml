@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position: MyString
+  company: MyString
+  status: MyString
+  link_to_position: MyString
+  notes: MyString
+  user: one
+
+two:
+  position: MyString
+  company: MyString
+  status: MyString
+  link_to_position: MyString
+  notes: MyString
+  user: two
