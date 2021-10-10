@@ -36,6 +36,16 @@ arry = ['Active', 'Closed']
     )
 end
 
+(10..20).each do |id|
+    JobOpportunity.create(
+        position: Faker::Lorem.sentence(word_count: 1),
+        company: Faker::Lorem.sentence(word_count: 2),
+        status: arry.sample,
+        link_to_position: Faker::Lorem.word,
+        notes: Faker::Lorem.sentence(word_count: 3),
+        user_id: id
+    )
+end
 
 
 
