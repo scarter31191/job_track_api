@@ -5,7 +5,8 @@ class CreateBlogs < ActiveRecord::Migration[6.0]
       t.string :topic
       t.string :link
       t.string :notes
-
+      t.references :user, null: false, foreign_key: true
+      
       t.timestamps
     end
   end

@@ -36,12 +36,24 @@ arry = ['Active', 'Closed']
     )
 end
 
+#JOB OPPORTUNITY DATA
 (10..20).each do |id|
     JobOpportunity.create(
         position: Faker::Lorem.sentence(word_count: 1),
         company: Faker::Lorem.sentence(word_count: 2),
         status: arry.sample,
         link_to_position: Faker::Lorem.word,
+        notes: Faker::Lorem.sentence(word_count: 3),
+        user_id: id
+    )
+end
+
+#BLOG DATA
+(1..20).each do |id|
+    Blog.create(
+        date: Faker::Date.in_date_period(month: 2),
+        topic: Faker::Lorem.sentence(word_count: 2),
+        link: Faker::Lorem.sentence(word_count: 1),
         notes: Faker::Lorem.sentence(word_count: 3),
         user_id: id
     )
