@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :goals
+    has_many :goals, :job_opportunities
     
     has_secure_password
 
