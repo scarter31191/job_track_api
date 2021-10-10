@@ -1,11 +1,12 @@
 module Api
   module V1
     class JobOpportunitiesController < ApplicationController
-      before_action :set_job_opportunity, only: [:show, :update, :destroy]
+      before_action :set_user
+      before_action :set_job_opportunity, except: [:index]
     
       # GET /job_opportunities
       def index
-        @job_opportunities = JobOpportunity.all
+        @job_opportunities = @user.job_opportunities
     
         render json: @job_opportunities
       end
@@ -44,6 +45,10 @@ module Api
         # Use callbacks to share common setup or constraints between actions.
         def set_job_opportunity
           @job_opportunity = JobOpportunity.find(params[:id])
+        end
+
+        def set_user
+          @user = User.find(params[:user_id])
         end
     
         # Only allow a trusted parameter "white list" through.
